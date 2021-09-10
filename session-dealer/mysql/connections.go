@@ -22,7 +22,7 @@ func expandLocalMysql(port int) (mysqlHost *du.MysqlDB) {
 func querySessionInfo(snifferPort int, clientHost *string) (user, db *string, err error) {
 	mysqlServer := expandLocalMysql(snifferPort)
 	querySQL := fmt.Sprintf(
-		"SELECT user, db FROM information_schema.processlist WHERE host='%s'", clientHost)
+		"SELECT user, db FROM information_schema.processlist WHERE host='%s'", *clientHost)
 	// log.Debug(querySQL)
 	queryRow, err := mysqlServer.QueryRow(querySQL)
 	if err != nil {
