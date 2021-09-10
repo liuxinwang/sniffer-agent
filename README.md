@@ -52,7 +52,12 @@ Ubuntu:
 ```
 apt-get install libpcap-dev
 ```
-2.执行编译命令 go build
+2.执行编译命令
+```
+export GOPROXY=https://goproxy.io
+export GO111MODULE=on
+go build -mod=vendor
+```
 
 ### 6. Demo
 
